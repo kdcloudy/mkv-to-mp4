@@ -9,7 +9,5 @@ then
 exit $err
 fi
 
-mkvextract $filepath tracks 0:video.hvc
-mkvextract tenet.mkv tracks 1:atmos.eac3
+ffmpeg -i $filepath -c:v copy -c:a copy -tag:v hvc1 output.mp4
 
-mp4box -add video.hvc -add atmos.eac3 Pass1.mp4
